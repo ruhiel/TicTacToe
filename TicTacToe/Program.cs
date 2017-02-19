@@ -10,6 +10,8 @@ namespace TicTacToe
 	{
 		static void Main(string[] args)
 		{
+			var b = new Board(new HumanPlayer(Side.Black), new RandomPlayer(Side.White));
+			b.PlayOut();
 		}
 	}
 }
