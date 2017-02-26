@@ -28,6 +28,27 @@ namespace TicTacToe
 			WhitePlayer = white;
 		}
 
+		public State PlayOutFast()
+		{
+			while (!IsGameEnd)
+			{
+				var hand = NowPlayer.Move(this);
+
+				if (Side == Side.Black)
+				{
+					Black |= hand;
+				}
+				else
+				{
+					White |= hand;
+				}
+
+				Side = Side.Reverse();
+			}
+
+			return State();
+		}
+
 		public State PlayOut()
 		{
 			Console.WriteLine(ToString());
